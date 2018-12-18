@@ -1,6 +1,8 @@
 # Meep Release Notes
 
 ## Meep 1.5
+12/10/2018
+ * gyroelectric_susceptibility class
 
 6/7/2018
 
