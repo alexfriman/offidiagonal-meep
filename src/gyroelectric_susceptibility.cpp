@@ -1,5 +1,5 @@
 /* Copyright (C) 2005-2014 Massachusetts Institute of Technology
-%(С) 2015-2018 Lebedev Physical Institute of  the Russian Academy of Sciences
+%(С) 2015-2018 Lebedev Physical Institute of  the Russian Academy of Sciences (I really do not understand those copyright laws. Hope this line does not break any law. If it does, email me: friman_a@sci.lebedev.ru)
 %  This program is free software; you can redistribute it and/or modify
 %  it under the terms of the GNU General Public License as published by
 %  the Free Software Foundation; either version 2, or (at your option)
@@ -159,7 +159,7 @@ namespace meep {
             
             if (w && s){
                 realnum *p = d_int->P[c][cmp], *pp = d_int->P_prev[c][cmp];// polarisation and previous value
-                complex<double> p_c[ntot]; //dynamic buffer for complex polarization data. TODO: remove it and sum only real parts
+                complex<double>* p_c = new complex<double>[ntot];//dynamic buffer for complex polarization data. TODO: remove it and sum only real parts
                 LOOP_OVER_VOL_OWNED(gv, c, i) {
                     p_c[i]=0;
                 }
@@ -216,6 +216,7 @@ namespace meep {
                p[i]=p_c[i].real();
                pp[i] = pcur;
           }
+           delete [] p_c;
         }
         }
 
